@@ -6,6 +6,8 @@
  * helpful while working through this exercise.
  */
 class BagMain {
+
+
     /**
      * TODO: Implement this method
      * Enhance each of the bags in bags. If double_enhance_handbags is
@@ -15,7 +17,18 @@ class BagMain {
      * on new Bag types (and HandBag subclasses)!
      */
     public static void enhanceBags(Bag[] bags, boolean double_enhance_handbags) {
-        // TODO: Implement this.
+        for(int i=0; i < bags.length; i ++){
+            if(double_enhance_handbags){
+                bags[i].enhance();
+                if(bags[i] instanceof HandBag){
+                    bags[i].enhance();
+                }
+
+            }
+            else {
+                bags[i].enhance();
+            }
+        }
     }
 
     /**
@@ -28,6 +41,12 @@ class BagMain {
      * @return The total number of straps of CrossbodyBags.
      */
     public static int countCrossbodyStraps(Bag[] bags) {
-        // TODO: Implement this.
+        int sum = 0;
+        for(int i=0; i < bags.length; i ++){
+            if(bags[i] instanceof CrossbodyBag){
+                sum += ((CrossbodyBag) bags[i]).getNumberOfStraps();
+
+            }        }
+        return sum;
     }
 }
